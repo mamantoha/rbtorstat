@@ -1,0 +1,33 @@
+  Based on http://www.g-loaded.eu/packages/rtorstat/rtorstat-0.3.tar.gz
+
+  About:
+    rbtorstat is a simple web page generator, written in Ruby, which shows status information about the rTorrent bittorrent client. This makes it possible to quickly have an overview of your torrent list from a remote location, without having to log into the remote machine that actually runs rTorrent.
+
+  Operating System:
+    - Linux
+
+  Requirements:
+    - Ruby (http://ruby-lang.org)
+    - bencode (http://rubyforge.org/projects/bencode/)
+    - rTorrent (http://libtorrent.rakshasa.no/)
+
+  rTorrent Configuration:
+    rbtorstat needs to read the torrent session data, so rTorrent needs to be configured to save this information to a pre-defined directory. The following shows all the session-data specific configuration rTorrent (.rtorrent.rc) options:
+      # Sets the directory where session data files are stored
+      session = /opt/bittorrent/sessiondata
+      # Keeps session data files even if torrent has finished
+      session_on_completion = yes
+      # Not really required, but recommended - see rtorrent(1) man page
+      session_lock = yes
+      # Save session data every 5 mins, with a 4 min offset
+      schedule = session_save,240,300,session_save=
+
+  Usage:
+    $ ruby rbtorstat.rb > index.html
+
+  Cron job:
+    */5 * * * *   root ruby /path/to/rbtorstat.rm /opt/bittorrent/sessiondata/ > /var/www/index.html  
+
+  Last modify:
+    24-07-2007
+
