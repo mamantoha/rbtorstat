@@ -1,0 +1,38 @@
+<!-- Темплейт для rbtorstat.rb 
+http://freshmeat.net/articles/view/447/
+Last modified: 8.03.2009
+-->
+
+<html>
+<head>
+  <title>rTorrent Status (powered by #{APP_NAME} #{APP_VER})</title>
+  <link rel="stylesheet" type="text/css" href="rbtorstat.css" />
+</head>
+<body>
+<div id="all_content">
+  <!-- <h2>rTorrent Status</h2> -->
+  <center><img src="rtorrent.gif" /></center>
+  <hr />
+  <center><pre><a href="index.html">&#60;&#60;НАЗАД</a></pre></center>
+  <div id="info"><pre>#{page_head}</pre></div>
+  <br />
+  <strong>Started/Stoped Torrents</strong>
+  <!-- Активні закачки -->
+  <pre>#{torstarted}</pre>
+  <br />
+
+  <strong>Finished Torrents</strong>
+  <!-- Закінчені закачки -->
+  <pre>#{torfinished}</pre>
+  <br />
+  <center><pre><a href="index.html">&#60;&#60;НАЗАД</a></pre></center>
+  <br />
+  <hr />
+  <div id="copyrights">
+  Copyright 2007-2009 &copy; <a href="mailto:anton.linux@nospam@gmail.com">#{APP_AUTH}</a>. All Rights Reserved.<br />
+  Created with #{APP_NAME} #{APP_VER}
+  </div>
+  </div><!-- all_content -->
+</body>
+</html>
+
